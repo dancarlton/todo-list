@@ -1,5 +1,8 @@
+// create a variable and assign it to all elements with the class .fa-trash
 const deleteBtn = document.querySelectorAll('.fa-trash')
+// create a variable and assign to all span elements in the parent of .item
 const item = document.querySelectorAll('.item span')
+// create a variable and assign it to all span.completed tags that have a .item parent
 const itemCompleted = document.querySelectorAll('.item span.completed')
 
 Array.from(deleteBtn).forEach((element)=>{
