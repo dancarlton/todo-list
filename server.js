@@ -1,19 +1,27 @@
-// configured express
 const express = require('express')
+// imports the express framework
 const app = express()
+// creates an app variable from the express application
 const MongoClient = require('mongodb').MongoClient
+// creates a variable called MongoClient that imports the MongoClient from the MongoDB library
 const PORT = 2121
+// sets the port to listen to "2121"
 require('dotenv').config()
-
+// loads environment variables from a .env file
 
 let db,
     dbConnectionStr = process.env.DB_STRING,
     dbName = 'todo'
+// declares variables for the db connection and db name
 
 MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
+// connects the mongodb database using the dbConnectionStr variable
     .then(client => {
+    // creates a callback if connected to client
         console.log(`Connected to ${dbName} Database`)
+        // logs the name of the database connected
         db = client.db(dbName)
+        // changes the db variable to the db reference
     })
 
 app.set('view engine', 'ejs')
